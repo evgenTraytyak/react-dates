@@ -55,6 +55,8 @@ const propTypes = {
   onPrevMonthClick: PropTypes.func,
   onNextMonthClick: PropTypes.func,
   onOutsideClick: PropTypes.func,
+  monthInfo: PropTypes.object,
+  monthInfoDateFormat: PropTypes.string,
 
   // i18n
   monthFormat: PropTypes.string,
@@ -239,6 +241,8 @@ export default class DayPickerRangeController extends React.Component {
       enableOutsideDays,
       initialVisibleMonth,
       focusedInput,
+      monthInfo,
+      monthInfoDateFormat,
     } = this.props;
 
     const modifiers = {
@@ -264,6 +268,8 @@ export default class DayPickerRangeController extends React.Component {
     return (
       <DayPicker
         ref={ref => { this.dayPicker = ref; }}
+        monthInfo={monthInfo}
+        monthInfoDateFormat={monthInfoDateFormat}
         orientation={orientation}
         enableOutsideDays={enableOutsideDays}
         modifiers={modifiers}

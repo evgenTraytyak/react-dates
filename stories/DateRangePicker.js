@@ -57,6 +57,29 @@ const TestNextIcon = props => (
     Next
   </span>
 );
+const monthPrices = {
+  '2016.12.11': '11435₽',
+  '2016.12.17': '18628₽',
+  '2016.12.15': '51672₽',
+  '2016.12.16': '62532₽',
+  '2016.12.07': '16777₽',
+  '2016.12.05': '4085₽',
+  '2016.12.03': '18240₽',
+  '2016.12.18': '51209₽',
+  '2016.12.13': '30625₽',
+  '2016.12.25': '62.5k ₽',
+  '2016.11.26': '131€',
+  '2016.12.09': '$158',
+  '2016.12.10': '12673₽',
+  '2016.12.23': '15643₽',
+  '2016.12.06': '29425₽',
+  '2016.12.02': '19705₽',
+  '2016.12.20': '32102₽',
+  '2016.12.19': '59776₽',
+  '2016.11.29': '17098₽',
+  '2016.12.21': '32675₽',
+  '2016.12.24': '42024₽',
+};
 
 storiesOf('DateRangePicker', module)
   .add('default', () => (
@@ -193,5 +216,11 @@ storiesOf('DateRangePicker', module)
   .add('blocks fridays', () => (
     <DateRangePickerWrapper
       isDayBlocked={day => moment.weekdays(day.weekday()) === 'Friday'}
+    />
+  ))
+  .add('with date prices', () => (
+    <DateRangePickerWrapper
+      monthInfo={monthPrices}
+      monthInfoDateFormat={'YYYY.MM.DD'}
     />
   ));

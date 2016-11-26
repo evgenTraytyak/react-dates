@@ -13,6 +13,8 @@ import { HORIZONTAL_ORIENTATION, VERTICAL_ORIENTATION } from '../../constants';
 
 const propTypes = {
   month: momentPropTypes.momentObj,
+  monthInfo: PropTypes.object,
+  monthInfoDateFormat: PropTypes.string,
   isVisible: PropTypes.bool,
   enableOutsideDays: PropTypes.bool,
   modifiers: PropTypes.object,
@@ -32,6 +34,7 @@ const propTypes = {
 
 const defaultProps = {
   month: moment(),
+  monthInfoDateFormat: 'MM/DD/YYYY',
   isVisible: true,
   enableOutsideDays: false,
   modifiers: {},
@@ -56,7 +59,9 @@ export function getModifiersForDay(modifiers, day) {
 export default function CalendarMonth(props) {
   const {
     month,
+    monthInfo,
     monthFormat,
+    monthInfoDateFormat,
     orientation,
     isVisible,
     modifiers,
@@ -98,6 +103,7 @@ export default function CalendarMonth(props) {
                     {day &&
                       <CalendarDay
                         day={day}
+                        dayInfo={monthInfo && monthInfo[day.format(monthInfoDateFormat)]}
                         modifiers={modifiersForDay}
                         onDayMouseEnter={onDayMouseEnter}
                         onDayMouseLeave={onDayMouseLeave}

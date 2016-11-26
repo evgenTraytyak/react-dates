@@ -7,6 +7,7 @@ export const TOUCHSTART_TIMEOUT = 200;
 
 const propTypes = {
   day: momentPropTypes.momentObj,
+  dayInfo: PropTypes.string,
   modifiers: PropTypes.arrayOf(PropTypes.string),
   onDayClick: PropTypes.func,
   onDayMouseDown: PropTypes.func,
@@ -84,7 +85,7 @@ export default class CalendarDay extends React.Component {
   }
 
   render() {
-    const { day, modifiers } = this.props;
+    const { day, dayInfo, modifiers } = this.props;
 
     return (
       <div
@@ -98,6 +99,7 @@ export default class CalendarDay extends React.Component {
         onTouchEnd={(e) => this.handleDayTouchEnd(day, modifiers, e)}
       >
         <span className="CalendarDay__day">{day.format('D')}</span>
+        {dayInfo && (<span className="CalendarDay__dayInfo">{dayInfo}</span>)}
       </div>
     );
   }

@@ -15,6 +15,7 @@ import OrientationShape from '../shapes/OrientationShape';
 import { HORIZONTAL_ORIENTATION, VERTICAL_ORIENTATION } from '../../constants';
 
 const propTypes = {
+  monthInfo: PropTypes.object,
   enableOutsideDays: PropTypes.bool,
   firstVisibleMonthIndex: PropTypes.number,
   initialMonth: momentPropTypes.momentObj,
@@ -97,6 +98,8 @@ export default class CalendarMonthGrid extends React.Component {
 
   render() {
     const {
+      monthInfo,
+      monthInfoDateFormat,
       enableOutsideDays,
       firstVisibleMonthIndex,
       initialMonth,
@@ -128,6 +131,8 @@ export default class CalendarMonthGrid extends React.Component {
         <CalendarMonth
           key={month.format('MM-YY')}
           month={month}
+          monthInfo={monthInfo}
+          monthInfoDateFormat={monthInfoDateFormat}
           isVisible={isVisible}
           enableOutsideDays={enableOutsideDays}
           modifiers={modifiers}

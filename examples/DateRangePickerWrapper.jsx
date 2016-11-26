@@ -26,6 +26,7 @@ class DateRangePickerWrapper extends React.Component {
 
   render() {
     const { focusedInput, startDate, endDate } = this.state;
+
     return (
       <div>
         <DateRangePicker
